@@ -26,6 +26,9 @@ void set_server_socket(Server *s);
  */
 void bind_server_socket(Server *s);
 
+/** @brief Show the local addresses to the peers to connect. */
+void print_server_addrs();
+
 /**
  * @brief Stop the server operation and clean variables
  * @param s Pointer to the server struct.

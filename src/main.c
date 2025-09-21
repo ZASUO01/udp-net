@@ -7,12 +7,11 @@ int main(){
     set_server_socket(&s);
     bind_server_socket(&s);
 
-    printf("SERVER RUNNING\n");
+    print_server_addrs();
 
     while (s.running){        
     }
     
-
     close_server(&s);
     return 0;
 }

@@ -17,4 +17,10 @@
  */
 void init_any_addr_v4(struct sockaddr_in *addr, uint16_t port);
 
+/**
+ * @brief It looks for the local ip to be used to peers to  connect.
+ * @return The local ip.
+ */
+char *get_public_lan_ip_v4();
+
 #endif
