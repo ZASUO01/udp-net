@@ -8,6 +8,8 @@
 
 #include <stdint.h>
 
+#define APP_PORT 51001
+
 // PACKET
 #define PACKET_HEADER_BYTES 15
 #define PACKET_SYNC_BYTES 0x554E4554
