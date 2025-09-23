@@ -15,3 +15,9 @@ void log_exit(const char *msg){
     fprintf(stderr, "%s\n", msg);
     exit(EXIT_FAILURE);
 }
+
+void usage(const char *program){
+    fprintf(stderr, "Usage:\n");
+    fprintf(stderr, "%s mode: [1, 2]\n", program);
+    exit(EXIT_FAILURE);
+}

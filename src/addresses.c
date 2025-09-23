@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 static char *get_public_ip_by_dns_v4(const char *dns_ip);
 
@@ -29,6 +30,19 @@ char *get_public_lan_ip_v4(){
     }
 
     return NULL;
+}
+
+int parse_addr_v4(const char *ip, struct sockaddr_in *addr4, uint16_t port){
+    struct in_addr addr;
+    if(inet_pton(AF_INET, ip, &addr) != 1) {
+        return -1;
+    }
+
+    addr4->sin_addr = addr;
+    addr4->sin_port = htons(port);
+    addr4->sin_family = AF_INET;
+
+    return 0;
 }
 
 

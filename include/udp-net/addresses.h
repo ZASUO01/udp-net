@@ -23,4 +23,11 @@ void init_any_addr_v4(struct sockaddr_in *addr, uint16_t port);
  */
 char *get_public_lan_ip_v4();
 
+/**
+ * @brief Check if an ip string is valid or not
+ * @param ip The ip string.
+ * @return 0 if it succeeds and -1 otherwise.
+ */
+int parse_addr_v4(const char *ip, struct sockaddr_in *addr4, uint16_t port);
+
 #endif

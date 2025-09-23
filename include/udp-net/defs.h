@@ -7,10 +7,15 @@
 #define DEFS_H
 
 #include <stdint.h>
+#include <pthread.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
 
 // APPLICATION
 #define APP_PORT 51001
 #define MAX_INPUT_SIZE 256
+#define SERVER_MODE 1
+#define CLIENT_MODE 2
 
 // PACKET
 #define PACKET_HEADER_BYTES 15
@@ -61,6 +66,14 @@ typedef struct {
 typedef struct {
     int running;
     int sock_fd;
+    pthread_mutex_t server_mutex;
 } Server;
+
+//CLIENT
+typedef struct {
+    int connected;
+    int sock_fd;
+    struct sockaddr_in server_addr;
+} Client;
 
 #endif

@@ -18,4 +18,7 @@ void sys_log_exit(const char *msg);
  */
 void log_exit(const char *msg);
 
+/** @brief Print the correct program usage with expected command line arguments */
+void usage(const char *program);
+
 #endif

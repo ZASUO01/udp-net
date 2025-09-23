@@ -30,6 +30,6 @@ void close_server();
 void read_inputs();
 
 /** @brief Thread function to receive network data */
-void *receive_data(void);
+void *receive_data(void *arg);
 
 #endif
