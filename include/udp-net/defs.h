@@ -8,7 +8,9 @@
 
 #include <stdint.h>
 
+// APPLICATION
 #define APP_PORT 51001
+#define MAX_INPUT_SIZE 256
 
 // PACKET
 #define PACKET_HEADER_BYTES 15

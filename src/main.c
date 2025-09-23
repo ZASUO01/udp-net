@@ -2,16 +2,14 @@
 #include <stdio.h>
 
 int main(){
-    Server s;
-    init_server(&s);
-    set_server_socket(&s);
-    bind_server_socket(&s);
+    init_server();
+    set_server_socket();
+    bind_server_socket();
 
     print_server_addrs();
 
-    while (s.running){        
-    }
-    
-    close_server(&s);
+    read_inputs();
+
+    close_server();
     return 0;
 }

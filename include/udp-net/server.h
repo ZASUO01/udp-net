@@ -8,31 +8,28 @@
 
 #include <udp-net/defs.h>
 
-/**
- * @brief Initialize the server struct with initial values.
- * @param s Pointer to the server struct.
- */
-void init_server(Server *s);
+/** @brief Global server variable */
+extern Server server;
 
-/**
- * @brief Create an UDP socket and set to the server.
- * @param s Pointer to the server struct.
- */
-void set_server_socket(Server *s);
+/** @brief Initialize the server struct with initial values. */
+void init_server();
 
-/**
- * @brief Bind the server socket to an internal ip addr and port
- * @param s Pointer to the server struct.
- */
-void bind_server_socket(Server *s);
+/** @brief Create an UDP socket and set to the server. */
+void set_server_socket();
+
+/** @brief Bind the server socket to an internal ip addr and port */
+void bind_server_socket();
 
 /** @brief Show the local addresses to the peers to connect. */
 void print_server_addrs();
 
-/**
- * @brief Stop the server operation and clean variables
- * @param s Pointer to the server struct.
- */
-void close_server(Server *s);
+/** @brief Stop the server operation and clean variables */
+void close_server();
+
+/** @brief Read terminal inputs to control the server state  */
+void read_inputs();
+
+/** @brief Thread function to receive network data */
+void *receive_data(void);
 
 #endif
