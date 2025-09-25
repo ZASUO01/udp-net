@@ -27,7 +27,7 @@ void bind_socket_to_any_v4(int fd);
  * @brief Use poll to check if the socket has data to be received
  * @return 0 if it does have new data and -1 otherwise
  */
-int socket_ready_to_receive(int fd);
+int socket_ready_to_receive(int fd, int ms);
 
 /**
  * @brief Send a packet to an specified address.

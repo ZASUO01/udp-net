@@ -130,7 +130,7 @@ static void *receive_data(void *arg){
         } 
         pthread_mutex_unlock(&server.server_mutex);
 
-        if(socket_ready_to_receive(socket) != 0){
+        if(socket_ready_to_receive(socket, 0) != 0){
             continue;
         }
 

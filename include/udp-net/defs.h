@@ -11,4 +11,7 @@
 #define SERVER_MODE 1
 #define CLIENT_MODE 2
 
+#define MAX_ATTEMPTS 6
+#define RECV_TIMEOUT_IN_SECS 2
+
 #endif

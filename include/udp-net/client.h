@@ -8,11 +8,22 @@
 
 #include <stdlib.h>
 #include <arpa/inet.h>
+#include <stdint.h>
+
+typedef enum{
+    CLOSED = 0,
+    REQ_SENT,
+    ACC_RECEIVED,
+    ESTABLISHED,
+} ClientState;
 
 typedef struct {
-    int connected;
     int sock_fd;
     struct sockaddr_in server_addr;
+    ClientState state;
+    uint8_t current_id;
+    uint8_t received_ack;
+    int total_attempts;
 } Client;
 
 

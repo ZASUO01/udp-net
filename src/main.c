@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]){
     Params p = parse_args(argc, argv);
 
-    set_log_level(LOG_INFO);
+    set_log_level(LOG_DEBUG);
 
     if(p.mode == SERVER_MODE){
         init_server();

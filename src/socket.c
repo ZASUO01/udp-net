@@ -29,13 +29,13 @@ void bind_socket_to_any_v4(int fd){
     }
 }
 
-int socket_ready_to_receive(int fd){
+int socket_ready_to_receive(int fd, int ms){
     struct pollfd fds[1];
     fds[0].fd = fd;
     fds[0].events = POLLIN;
     fds[0].revents = 0;
 
-    int result = poll(fds, 1, 0);
+    int result = poll(fds, 1, ms);
 
     if (result > 0 && (fds[0].revents & POLLIN)) {
         return 0;
