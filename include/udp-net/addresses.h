@@ -6,7 +6,6 @@
 #ifndef ADDRESSES_H
 #define ADDRESSES_H
 
-#include <sys/socket.h>
 #include <arpa/inet.h>
 #include <stdint.h>
 

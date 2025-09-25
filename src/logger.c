@@ -5,6 +5,12 @@
 #include <errno.h>
 #include <stdio.h>
 
+LogLevel current_log_level = LOG_DISABLED;
+
+void set_log_level(LogLevel level){
+    current_log_level = level;
+}
+
 void sys_log_exit(const char *msg){
     int err = errno;
     fprintf(stderr, "[SYSCALL ERROR] %s: %s\n", msg, strerror(err));

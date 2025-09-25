@@ -27,6 +27,7 @@ void build_packet(UdpNetPacket *p){
         
         size_t packet_size = PACKET_HEADER_BYTES + _length; 
         p->checksum = get_net_checksum(p, packet_size);
+        p->checksum = htons(p->checksum);
     }
 }
 
@@ -52,7 +53,7 @@ int is_valid_packet(UdpNetPacket *p){
     size_t packet_size = PACKET_HEADER_BYTES + _length;
     uint16_t calculated_checksum = get_net_checksum(&temp, packet_size);
 
-    if(calculated_checksum != p->checksum){
+    if(calculated_checksum != ntohs(p->checksum)){
         return -1;
     }
 

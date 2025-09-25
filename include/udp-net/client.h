@@ -6,7 +6,15 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include "udp-net/defs.h"
+#include <stdlib.h>
+#include <arpa/inet.h>
+
+typedef struct {
+    int connected;
+    int sock_fd;
+    struct sockaddr_in server_addr;
+} Client;
+
 
 /** @brief Global client variable */
 extern Client client;
@@ -26,6 +34,9 @@ void read_server_ip_from_terminal(char *buff, size_t buff_size);
 
 /** @brief Register the target server addr */
 void add_server_addr_to_client(const char *ip);
+
+/** @brief UDP handshake protocol with the server */
+void start_handshake();
 
 /** @brief Stop the client operation and clean variables */
 void close_client();

@@ -7,6 +7,7 @@
 #include <arpa/inet.h>
 #include <poll.h>
 #include <string.h>
+#include <stdio.h>
 
 int create_socket_v4(){
     int fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);

@@ -8,6 +8,7 @@
 
 typedef struct {
     int mode;
+    int debug;
 } Params;
 
 /** 

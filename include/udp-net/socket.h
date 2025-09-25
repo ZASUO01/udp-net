@@ -6,7 +6,10 @@
 #ifndef SOCKET_H
 #define SOCKET_H
 
-#include <udp-net/defs.h>
+#include "udp-net/packet.h"
+
+#include <stdlib.h>
+#include <arpa/inet.h>
 
 /**
  * @brief Create an UDP socket.

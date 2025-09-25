@@ -7,26 +7,24 @@
 int main(int argc, char *argv[]){
     Params p = parse_args(argc, argv);
 
+    set_log_level(LOG_INFO);
+
     if(p.mode == SERVER_MODE){
         init_server();
+        
         set_server_socket();
+        
         bind_server_socket();
-
+        
+        init_server_threads();
+        
+        start_sever();
+        
         print_server_addrs();
    
-        int *sock = malloc(sizeof(int));
-        *sock = server.sock_fd;
-
-        pthread_t recv_t;
-        if(pthread_create(&recv_t, NULL, receive_data, sock) != 0){
-            sys_log_exit("create receive thread");
-        }
-
         read_inputs();
 
-        if(pthread_join(recv_t, NULL) != 0){
-            sys_log_exit("join receive thread");
-        }
+        join_server_threads();
 
         close_server();
     }else if(p.mode == CLIENT_MODE){
@@ -37,6 +35,8 @@ int main(int argc, char *argv[]){
        read_server_ip_from_terminal(input, INET_ADDRSTRLEN);
 
        add_server_addr_to_client(input);
+
+       start_handshake();
 
        close_client();
     }
